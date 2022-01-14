@@ -68,6 +68,13 @@ function asAmirror(str) {
   //Ej: Recibe ---> "The Henry Challenge is close!" || Devuelve ---> "ehT yrneH egnellahC si !esolc"
   //Escribe tu código aquí
   let palabras = str.split(" ");
+  let alreves = [];
+  for (var i=0;i<palabras.length;i++)
+  {
+    alreves.push(palabras[i].split("").reverse().join(""));
+   }
+    return alreves.join(" ");
+  /*
   let alreves = "";
   for (let i=0; i<palabras.length; i++)
   	{
@@ -83,6 +90,7 @@ function asAmirror(str) {
 	     alreves += " " + cadapalabra; 
     }
   return alreves;
+  */
 } 
 
 
@@ -91,13 +99,19 @@ function capicua(numero){
   //La misma debe retornar: "Es capicua" si el número se número que se lee igual de 
   //izquierda a derecha que de derecha a izquierda. Caso contrario retorna "No es capicua"
   //Escribe tu código aquí
-  const numeroString = numero.toString();
+  let numero1 = numero.toString();
+  let numero2 = numero1.split("").reverse().join("");
+  if (numero1==numero2)
+    return "Es capicua";
+  else
+    return "No es capicua";
+  /*const numeroString = numero.toString();
   for (let i=0; i<Math.trunc(numeroString.length/2);i++)
   {
     if (numeroString[i]!==numeroString[numeroString.length-i-1])
       return "No es capicua";
   }
-  return "Es capicua";  
+  return "Es capicua";  */
 }
 
 
@@ -108,9 +122,7 @@ function deleteAbc(cadena){
 let cadenanueva = "";
 for (let i=0; i<cadena.length; i++)
   	{
-    if (cadena[i]=="a" ||cadena[i]=="b" ||cadena[i]=="c")
-      	continue;
-    else
+    if (cadena[i]!="a" && cadena[i]!="b" && cadena[i]!="c")
         cadenanueva += cadena[i];
   	}
   return cadenanueva;
